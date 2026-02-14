@@ -2,9 +2,10 @@ pages:
   stage: deploy
   script:
     - mkdir public
-    - cp -r * public
+    - rsync -av --exclude public ./ public/
   artifacts:
     paths:
       - public
   only:
     - main
+
